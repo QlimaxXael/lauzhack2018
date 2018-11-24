@@ -33,7 +33,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewId"
@@ -42,7 +42,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -59,7 +59,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewJobName"
@@ -68,7 +68,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -85,7 +85,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewMachineState"
@@ -94,7 +94,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -111,7 +111,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewMachineSpeed"
@@ -120,7 +120,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -137,7 +137,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewInputCounter"
@@ -146,7 +146,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -163,7 +163,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewOutputCounter"
@@ -172,7 +172,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
@@ -189,7 +189,7 @@
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <TextView
             android:id="@+id/textViewCuttingForce"
@@ -198,7 +198,7 @@
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
     </LinearLayout>
 
