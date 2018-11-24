@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 
 import java.io.BufferedReader;
@@ -26,11 +27,11 @@ public class JsonQuery {
         if (executorService == null) executorService = Executors.newFixedThreadPool(4);
     }
 
-    public Future<JSONArray> getJson(String url) {
+    public Future<JSONObject> getJson(String url) {
         return executorService.submit(new JSONCallable(url));
     }
 
-    private class JSONCallable implements Callable<JSONArray> {
+    private class JSONCallable implements Callable<JSONObject> {
         private String url;
 
         public JSONCallable(String url) {
@@ -38,7 +39,7 @@ public class JsonQuery {
         }
 
         @Override
-        public JSONArray call() throws Exception {
+        public JSONObject call() throws Exception {
             return readJsonFromUrl(url);
         }
 
@@ -51,13 +52,13 @@ public class JsonQuery {
             return sb.toString();
         }
 
-        private JSONArray readJsonFromUrl(String url) throws IOException, JSONException {
+        private JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
             InputStream is = new URL(url).openStream();
             try {
                 BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
                 String jsonText = readAll(rd);
                 JSONArray json = new JSONArray(jsonText);
-                return json;
+                return json.getJSONObject(0);
             } finally {
                 is.close();
             }
