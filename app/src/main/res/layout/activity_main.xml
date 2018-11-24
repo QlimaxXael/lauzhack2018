@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -38,7 +37,7 @@
 
         <TextView
             android:id="@+id/textViewId"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -64,7 +63,7 @@
 
         <TextView
             android:id="@+id/textViewJobName"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -90,7 +89,7 @@
 
         <TextView
             android:id="@+id/textViewMachineState"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -116,7 +115,7 @@
 
         <TextView
             android:id="@+id/textViewMachineSpeed"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -142,7 +141,7 @@
 
         <TextView
             android:id="@+id/textViewInputCounter"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -170,7 +169,7 @@
 
         <TextView
             android:id="@+id/textViewOutputCounter"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -196,7 +195,7 @@
 
         <TextView
             android:id="@+id/textViewCuttingForce"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
@@ -210,7 +209,8 @@
         android:layout_height="match_parent"
         android:layout_weight="0"
         android:orientation="horizontal"
-        android:visibility="visible">
+        android:visibility="visible"
+        android:baselineAligned="false">
 
         <LinearLayout
             android:id="@+id/layout_stopped"
@@ -225,14 +225,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                app:srcCompat="@drawable/ic_stop_red_75dp" />
+                app:srcCompat="@drawable/ic_stop_red_75dp"
+                android:contentDescription="@string/stopped_icon" />
 
             <TextView
                 android:id="@+id/text_stopped"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Stopped"
+                android:text="@string/stopped"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -251,14 +252,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                app:srcCompat="@drawable/ic_play_arrow_yellow_75dp" />
+                app:srcCompat="@drawable/ic_play_arrow_yellow_75dp"
+                android:contentDescription="@string/warning_icon" />
 
             <TextView
                 android:id="@+id/text_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Setting up"
+                android:text="@string/setting_up"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -277,14 +279,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                app:srcCompat="@drawable/ic_play_arrow_blue_75dp" />
+                app:srcCompat="@drawable/ic_play_arrow_blue_75dp"
+                android:contentDescription="@string/play_icon" />
 
             <TextView
                 android:id="@+id/text_running"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Running"
+                android:text="@string/running"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -303,14 +306,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                app:srcCompat="@drawable/ic_play_arrow_green_75dp" />
+                app:srcCompat="@drawable/ic_play_arrow_green_75dp"
+                android:contentDescription="@string/play_icon" />
 
             <TextView
                 android:id="@+id/text_producing"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Producing"
+                android:text="@string/producing"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -329,14 +333,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                app:srcCompat="@drawable/ic_power_settings_new_grey_75dp" />
+                app:srcCompat="@drawable/ic_power_settings_new_grey_75dp"
+                android:contentDescription="@string/power_setting_icon" />
 
             <TextView
                 android:id="@+id/text_shutdown"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:text="Shutdown"
+                android:text="@string/shutdown"
                 android:textAlignment="center"
                 android:textColor="@android:color/white"
                 android:textSize="12sp" />
@@ -364,14 +369,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_error_yellow_96dp" />
+                    app:srcCompat="@drawable/ic_error_yellow_96dp"
+                    android:contentDescription="@string/error_icon" />
 
                 <TextView
                     android:id="@+id/text_normal_stop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Stop"
+                    android:text="@string/stop"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
@@ -389,14 +395,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_new_releases_red_96dp" />
+                    app:srcCompat="@drawable/ic_new_releases_red_96dp"
+                    android:contentDescription="@string/release_icon" />
 
                 <TextView
                     android:id="@+id/text-urgent_stop"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Urgent Stop"
+                    android:text="@string/urgent_stop"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
@@ -414,14 +421,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_warning_yellow_96dp" />
+                    app:srcCompat="@drawable/ic_warning_yellow_96dp"
+                    android:contentDescription="@string/warning_yellow_icon" />
 
                 <TextView
                     android:id="@+id/text_defect"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Defect"
+                    android:text="@string/defect"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
@@ -439,14 +447,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_fast_forward_red_96dp" />
+                    app:srcCompat="@drawable/ic_fast_forward_red_96dp"
+                    android:contentDescription="@string/too_fast_icon" />
 
                 <TextView
                     android:id="@+id/text_speed"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Too Fast"
+                    android:text="@string/too_fast"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
@@ -464,14 +473,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_pan_tool_yellow_96dp" />
+                    app:srcCompat="@drawable/ic_pan_tool_yellow_96dp"
+                    android:contentDescription="@string/open_icon" />
 
                 <TextView
                     android:id="@+id/text_open"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Open"
+                    android:text="@string/open"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
@@ -489,14 +499,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/ic_vertical_align_center_red_96dp" />
+                    app:srcCompat="@drawable/ic_vertical_align_center_red_96dp"
+                    android:contentDescription="@string/pressure_icon" />
 
                 <TextView
                     android:id="@+id/text_cut"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="0"
-                    android:text="Pressure"
+                    android:text="@string/pressure"
                     android:textAlignment="center"
                     android:textColor="@android:color/white" />
             </LinearLayout>
