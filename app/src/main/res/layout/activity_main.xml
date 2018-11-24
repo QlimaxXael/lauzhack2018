@@ -32,7 +32,8 @@
             android:text="@string/battery_status"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewStatus"
@@ -40,7 +41,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -56,7 +58,8 @@
             android:text="@string/battery_present"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewPresent"
@@ -64,7 +67,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -80,7 +84,8 @@
             android:text="@string/battery_level"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewLevel"
@@ -88,7 +93,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -104,7 +110,8 @@
             android:text="@string/battery_plugged"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewPlugged"
@@ -112,7 +119,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -128,7 +136,8 @@
             android:text="@string/battery_voltage"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewVoltage"
@@ -136,7 +145,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
@@ -152,7 +162,8 @@
             android:text="@string/battery_temperature"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
-            android:textStyle="normal|bold" />
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/textViewTemperature"
@@ -160,7 +171,8 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:textColor="@android:color/background_light"
-            android:textSize="24sp" />
+            android:textSize="24sp"
+            android:visibility="gone" />
 
     </LinearLayout>
 
