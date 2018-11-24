@@ -19,7 +19,7 @@ public class Data {
     private boolean openProtection;
     private boolean technicalDefect;
 
-    public Data(JSONObject jsonObject) throws JSONException {
+    Data(JSONObject jsonObject) throws JSONException {
 
         this.timestamp = jsonObject.getString("timestamp");
         this.ID = jsonObject.getInt("ID");
@@ -41,53 +41,53 @@ public class Data {
         return timestamp;
     }
 
-    public int getID() {
+    int getID() {
         return ID;
     }
 
-    public String getJobName() {
+    String getJobName() {
         return jobName;
     }
 
-    public int getMachineState() {
+    int getMachineState() {
         return machineState;
     }
 
-    public int getMachineSpeed() {
+    int getMachineSpeed() {
         return machineSpeed;
     }
 
-    public int getMachineSpeedMax() {
+    int getMachineSpeedMax() {
         return machineSpeedMax;
     }
 
-    public int getInputCounter() {
+    int getInputCounter() {
         return inputCounter;
     }
 
-    public int getOutputCounter() {
+    int getOutputCounter() {
         return outputCounter;
     }
 
-    public int getCuttingForce() {
+    int getCuttingForce() {
         return cuttingForce;
     }
 
-    public int getCuttingForceMax() {
+    int getCuttingForceMax() {
         return cuttingForceMax;
     }
 
-    public boolean getNormalStop() {
+    boolean getNormalStop() {
         return normalStop;
     }
 
-    public boolean getUrgentStop() { return urgentStop; }
+    boolean getUrgentStop() { return urgentStop; }
 
-    public boolean getOpenProtection() {
+    boolean getOpenProtection() {
         return openProtection;
     }
 
-    public boolean getTechnicalDefect() {
+    boolean getTechnicalDefect() {
         return technicalDefect;
     }
 }

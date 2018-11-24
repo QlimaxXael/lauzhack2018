@@ -10,4 +10,25 @@
     <string name="output_counter">Output counter</string>
     <string name="cutting_force">Cutting force</string>
     <string name="display_info">Display info</string>
+    <string name="stopped">Stopped</string>
+    <string name="warning_icon">Warning icon</string>
+    <string name="setting_up">Setting up</string>
+    <string name="running">Running</string>
+    <string name="play_icon">Play icon</string>
+    <string name="producing">Producing</string>
+    <string name="power_setting_icon">Power setting icon</string>
+    <string name="shutdown">Shutdown</string>
+    <string name="error_icon">Error icon</string>
+    <string name="stop">Stop</string>
+    <string name="release_icon">Urgent stop icon</string>
+    <string name="urgent_stop">Urgent Stop</string>
+    <string name="warning_yellow_icon">Warning yellow icon</string>
+    <string name="defect">Defect</string>
+    <string name="too_fast_icon">Too fast icon</string>
+    <string name="too_fast">Too Fast</string>
+    <string name="open_icon">Open icon</string>
+    <string name="open">Open</string>
+    <string name="pressure_icon">Pressure icon</string>
+    <string name="pressure">Pressure</string>
+    <string name="stopped_icon">Stopped icon</string>
 </resources>

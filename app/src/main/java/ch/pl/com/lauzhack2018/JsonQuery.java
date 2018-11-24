@@ -1,7 +1,5 @@
 package ch.pl.com.lauzhack2018;
 
-import com.google.gson.JsonArray;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -19,22 +17,22 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class JsonQuery {
+class JsonQuery {
 
     private static ExecutorService executorService;
 
-    public JsonQuery () {
+    JsonQuery() {
         if (executorService == null) executorService = Executors.newFixedThreadPool(4);
     }
 
-    public Future<JSONObject> getJson(String url) {
+    Future<JSONObject> getJson(String url) {
         return executorService.submit(new JSONCallable(url));
     }
 
     private class JSONCallable implements Callable<JSONObject> {
         private String url;
 
-        public JSONCallable(String url) {
+        JSONCallable(String url) {
             this.url = url;
         }
 
@@ -53,14 +51,11 @@ public class JsonQuery {
         }
 
         private JSONObject readJsonFromUrl(String url) throws IOException, JSONException {
-            InputStream is = new URL(url).openStream();
-            try {
+            try (InputStream is = new URL(url).openStream()) {
                 BufferedReader rd = new BufferedReader(new InputStreamReader(is, Charset.forName("UTF-8")));
                 String jsonText = readAll(rd);
                 JSONArray json = new JSONArray(jsonText);
                 return json.getJSONObject(0);
-            } finally {
-                is.close();
             }
         }
     }
