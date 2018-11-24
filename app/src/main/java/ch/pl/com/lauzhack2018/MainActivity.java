@@ -22,8 +22,12 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.epson.moverio.btcontrol.DisplayControl;
 
@@ -32,6 +36,7 @@ import ch.pl.com.lauzhack2018.R;
 public class MainActivity extends AppCompatActivity {
 
     private Handler mHandler;
+    private boolean displayingInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,35 @@ public class MainActivity extends AppCompatActivity {
         //Changes display distance
         DisplayControl displayControl = new DisplayControl(this);
         displayControl.setDisplayDistance(15);
+
+        //Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.mainToolbarId);
+        setSupportActionBar(toolbar);
+
+        displayingInfo = false;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_bar, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+            case R.id.action_info:
+                toggleInfoDisplay();
+                return true;
+
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
@@ -68,6 +102,38 @@ public class MainActivity extends AppCompatActivity {
                     setBatteryInfo(intent);
                 }
             });
+        }
+    }
+
+    private void toggleInfoDisplay() {
+        displayingInfo = !displayingInfo;
+
+        if (displayingInfo) {
+            (findViewById(R.id.textViewStatus)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelStatus)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewPresent)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelPresent)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLevel)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelLevel)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewPlugged)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelPlugged)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewVoltage)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelVoltage)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewTemperature)).setVisibility(View.VISIBLE);
+            (findViewById(R.id.textViewLabelTemperature)).setVisibility(View.VISIBLE);
+        } else {
+            (findViewById(R.id.textViewStatus)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelStatus)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewPresent)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelPresent)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLevel)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelLevel)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewPlugged)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelPlugged)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewVoltage)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelVoltage)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewTemperature)).setVisibility(View.GONE);
+            (findViewById(R.id.textViewLabelTemperature)).setVisibility(View.GONE);
         }
     }
 
