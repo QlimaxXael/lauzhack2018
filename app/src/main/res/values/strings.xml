@@ -9,4 +9,5 @@
     <string name="battery_current">current</string>
     <string name="battery_voltage">voltage</string>
     <string name="battery_temperature">temperature</string>
+    <string name="display_Info">Display Info</string>
 </resources>
