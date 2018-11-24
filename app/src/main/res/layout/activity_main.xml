@@ -213,6 +213,7 @@
         android:visibility="visible">
 
         <LinearLayout
+            android:id="@+id/layout_stopped"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -220,14 +221,14 @@
             android:visibility="gone">
 
             <ImageView
-                android:id="@+id/image_normal_stopped"
+                android:id="@+id/image_stopped"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 app:srcCompat="@drawable/ic_stop_red_75dp" />
 
             <TextView
-                android:id="@+id/text_normal_stopped"
+                android:id="@+id/text_stopped"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -238,6 +239,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_setting"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -245,14 +247,14 @@
             android:visibility="gone">
 
             <ImageView
-                android:id="@+id/image_urgent_setting"
+                android:id="@+id/image_setting"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 app:srcCompat="@drawable/ic_play_arrow_yellow_75dp" />
 
             <TextView
-                android:id="@+id/text-urgent_setting"
+                android:id="@+id/text_setting"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -263,6 +265,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_running"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -288,6 +291,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_producing"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -313,6 +317,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/layout_shutdown"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
@@ -347,6 +352,7 @@
             android:visibility="visible">
 
             <LinearLayout
+                android:id="@+id/layout_normal_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -371,6 +377,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_urgent_stop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -395,6 +402,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_defect"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -419,6 +427,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_speed"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -443,6 +452,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_open"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
@@ -467,6 +477,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layout_cut"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
