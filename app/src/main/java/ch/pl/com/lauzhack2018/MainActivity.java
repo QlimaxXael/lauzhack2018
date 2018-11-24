@@ -10,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.epson.moverio.btcontrol.DisplayControl;
@@ -155,5 +156,68 @@ public class MainActivity extends AppCompatActivity {
         ((TextView) findViewById(R.id.textViewInputCounter)).setText(""+data.getInputCounter());
         ((TextView) findViewById(R.id.textViewOutputCounter)).setText(""+data.getOutputCounter());
         ((TextView) findViewById(R.id.textViewCuttingForce)).setText(""+data.getCuttingForce());
+        //setting warnings visibility
+        if(data.getUrgentStop()) {
+            ((LinearLayout) findViewById(R.id.layout_urgent_stop)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_urgent_stop)).setVisibility(View.GONE);
+        }
+        if(data.getNormalStop()) {
+            ((LinearLayout) findViewById(R.id.layout_normal_stop)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_normal_stop)).setVisibility(View.GONE);
+        }
+        if(data.getOpenProtection()) {
+            ((LinearLayout) findViewById(R.id.layout_open)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_open)).setVisibility(View.GONE);
+        }
+        if(data.getTechnicalDefect()) {
+            ((LinearLayout) findViewById(R.id.layout_defect)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_defect)).setVisibility(View.GONE);
+        }
+        if(data.getMachineSpeed() > data.getMachineSpeedMax()){
+            ((LinearLayout) findViewById(R.id.layout_speed)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_speed)).setVisibility(View.GONE);
+        }
+        if(data.getCuttingForce() > data.getCuttingForceMax()){
+            ((LinearLayout) findViewById(R.id.layout_cut)).setVisibility(View.VISIBLE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_cut)).setVisibility(View.GONE);
+        }
+        //setting status visibility
+        if(data.getMachineState() == 0){
+            ((LinearLayout) findViewById(R.id.layout_stopped)).setVisibility(View.VISIBLE);
+            ((LinearLayout) findViewById(R.id.layout_setting)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_running)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_producing)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_shutdown)).setVisibility(View.GONE);
+        }else if(data.getMachineState() == 1){
+            ((LinearLayout) findViewById(R.id.layout_stopped)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_setting)).setVisibility(View.VISIBLE);
+            ((LinearLayout) findViewById(R.id.layout_running)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_producing)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_shutdown)).setVisibility(View.GONE);
+        }else if(data.getMachineState() == 2){
+            ((LinearLayout) findViewById(R.id.layout_stopped)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_setting)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_running)).setVisibility(View.VISIBLE);
+            ((LinearLayout) findViewById(R.id.layout_producing)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_shutdown)).setVisibility(View.GONE);
+        }else if(data.getMachineState() == 3){
+            ((LinearLayout) findViewById(R.id.layout_stopped)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_setting)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_running)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_producing)).setVisibility(View.VISIBLE);
+            ((LinearLayout) findViewById(R.id.layout_shutdown)).setVisibility(View.GONE);
+        }else{
+            ((LinearLayout) findViewById(R.id.layout_stopped)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_setting)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_running)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_producing)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.layout_shutdown)).setVisibility(View.VISIBLE);
+        }
     }
 }

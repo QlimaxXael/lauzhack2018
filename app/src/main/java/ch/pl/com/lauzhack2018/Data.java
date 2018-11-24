@@ -7,7 +7,7 @@ public class Data {
     private String timestamp;
     private int ID;
     private String jobName;
-    private String machineState;
+    private int machineState;
     private int machineSpeed;
     private int machineSpeedMax;
     private int inputCounter;
@@ -24,7 +24,7 @@ public class Data {
         this.timestamp = jsonObject.getString("timestamp");
         this.ID = jsonObject.getInt("ID");
         this.jobName = jsonObject.getString("JobName");
-        this.machineState = jsonObject.getString("MachineState");
+        this.machineState = jsonObject.getInt("MachineState");
         this.machineSpeed = jsonObject.getInt("MachineSpeed");
         this.machineSpeedMax = jsonObject.getInt("MachineSpeedMax");
         this.inputCounter = jsonObject.getInt("InputCounter");
@@ -49,7 +49,7 @@ public class Data {
         return jobName;
     }
 
-    public String getMachineState() {
+    public int getMachineState() {
         return machineState;
     }
 
@@ -77,19 +77,17 @@ public class Data {
         return cuttingForceMax;
     }
 
-    public boolean isNormalStop() {
+    public boolean getNormalStop() {
         return normalStop;
     }
 
-    public boolean isUrgentStop() {
-        return urgentStop;
-    }
+    public boolean getUrgentStop() { return urgentStop; }
 
-    public boolean isOpenProtection() {
+    public boolean getOpenProtection() {
         return openProtection;
     }
 
-    public boolean isTechnicalDefect() {
+    public boolean getTechnicalDefect() {
         return technicalDefect;
     }
 }
