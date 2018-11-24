@@ -22,19 +22,16 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
-import android.support.v7.widget.Toolbar;
 
 import com.epson.moverio.btcontrol.DisplayControl;
+
+import ch.pl.com.lauzhack2018.R;
 
 public class MainActivity extends AppCompatActivity {
 
     private Handler mHandler;
-    private boolean displayingInfo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,35 +51,6 @@ public class MainActivity extends AppCompatActivity {
         //Changes display distance
         DisplayControl displayControl = new DisplayControl(this);
         displayControl.setDisplayDistance(15);
-
-        //Set up the toolbar
-        Toolbar toolbar = findViewById(R.id.mainToolbarId);
-        setSupportActionBar(toolbar);
-
-        displayingInfo = false;
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_bar, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-
-            case R.id.action_info:
-                toggleInfoDisplay();
-                return true;
-
-            default:
-                // If we got here, the user's action was not recognized.
-                // Invoke the superclass to handle it.
-                return super.onOptionsItemSelected(item);
-
-        }
     }
 
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
@@ -103,51 +71,14 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void toggleInfoDisplay() {
-        displayingInfo = !displayingInfo;
-
-        if (displayingInfo) {
-            (findViewById(R.id.textViewId)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelId)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewJobName)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelJobName)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewMachineState)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelMachineState)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewMachineSpeed)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelMachineSpeed)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewInputCounter)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelInputCounter)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewOutputCounter)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelOutputCounter)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewCuttingForce)).setVisibility(View.VISIBLE);
-            (findViewById(R.id.textViewLabelCuttingForce)).setVisibility(View.VISIBLE);
-        } else {
-            (findViewById(R.id.textViewId)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelId)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewJobName)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelJobName)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewMachineState)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelMachineState)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewMachineSpeed)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelMachineSpeed)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewInputCounter)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelInputCounter)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewOutputCounter)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelOutputCounter)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewCuttingForce)).setVisibility(View.GONE);
-            (findViewById(R.id.textViewLabelCuttingForce)).setVisibility(View.GONE);
-        }
-    }
-
     void setBatteryInfo(Intent intent) {
         if (intent != null) {
-            ((TextView) findViewById(R.id.textViewId)).setText("-");
-            ((TextView) findViewById(R.id.textViewJobName)).setText("-");
-            ((TextView) findViewById(R.id.textViewMachineState)).setText("-");
-            ((TextView) findViewById(R.id.textViewMachineSpeed)).setText("-");
-            ((TextView) findViewById(R.id.textViewInputCounter)).setText("-");
-            ((TextView) findViewById(R.id.textViewOutputCounter)).setText("-");
-            ((TextView) findViewById(R.id.textViewCuttingForce)).setText("-");
+            ((TextView) findViewById(R.id.textViewStatus)).setText(getBatteryStatus(intent));
+            ((TextView) findViewById(R.id.textViewPresent)).setText(getBatteryPresent(intent));
+            ((TextView) findViewById(R.id.textViewLevel)).setText(getBatteryLevel(intent));
+            ((TextView) findViewById(R.id.textViewPlugged)).setText(getBatteryPlugged(intent));
+            ((TextView) findViewById(R.id.textViewVoltage)).setText(getBatteryVoltage(intent));
+            ((TextView) findViewById(R.id.textViewTemperature)).setText(getBatteryTemperature(intent));
         }
     }
 
