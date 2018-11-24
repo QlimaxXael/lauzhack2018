@@ -23,7 +23,6 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -32,14 +31,20 @@ import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
 
 import com.epson.moverio.btcontrol.DisplayControl;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
-import org.apache.commons.io.IOUtils;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
-import java.nio.charset.Charset;
+import java.net.URLConnection;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.FutureTask;
+
 public class MainActivity extends AppCompatActivity {
 
     private Handler mHandler;
@@ -64,19 +69,25 @@ public class MainActivity extends AppCompatActivity {
         DisplayControl displayControl = new DisplayControl(this);
         displayControl.setDisplayDistance(15);
 
-        //JSON
-        try {
-            JSONObject json = new JSONObject(IOUtils.toString(new URL("http://www.duggan.ch/~akv_lauzhack/mastercut.php?MachineName=MasterCut"), Charset.forName("UTF-8")));
-            Log.i("JSON: ", json.toString());
-        } catch (IOException | JSONException e) {
-            e.printStackTrace();
-        }
-
         //Set up the toolbar
         Toolbar toolbar = findViewById(R.id.mainToolbarId);
         setSupportActionBar(toolbar);
 
         displayingInfo = false;
+
+        //JSon query
+        String url = "http://www.duggan.ch/~akv_lauzhack/mastercut.php?MachineName=MasterCut";
+        JsonQuery jsonQuery = new JsonQuery();
+        JSONArray json = null;
+        try {
+            json = jsonQuery.getJson(url).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (json != null)
+            Log.d("Lauzhack", json.toString());
     }
 
     @Override
