@@ -17,17 +17,24 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.BatteryManager;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.epson.moverio.btcontrol.DisplayControl;
 
-import ch.pl.com.lauzhack2018.R;
+import org.apache.commons.io.IOUtils;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.net.URL;
+import java.nio.charset.Charset;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,6 +58,14 @@ public class MainActivity extends AppCompatActivity {
         //Changes display distance
         DisplayControl displayControl = new DisplayControl(this);
         displayControl.setDisplayDistance(15);
+
+        //JSON
+        try {
+            JSONObject json = new JSONObject(IOUtils.toString(new URL("http://www.duggan.ch/~akv_lauzhack/mastercut.php?MachineName=MasterCut"), Charset.forName("UTF-8")));
+            Log.i("JSON: ", json.toString());
+        } catch (IOException | JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
