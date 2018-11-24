@@ -1,15 +1,3 @@
-/*
- * Copyright(C) Seiko Epson Corporation 2016. All rights reserved.
- *
- * Warranty Disclaimers.
- * You acknowledge and agree that the use of the software is at your own risk.
- * The software is provided "as is" and without any warranty of any kind.
- * Epson and its licensors do not and cannot warrant the performance or results
- * you may obtain by using the software.
- * Epson and its licensors make no warranties, express or implied, as to non-infringement,
- * merchantability or fitness for any particular purpose.
- */
-
 package ch.pl.com.lauzhack2018;
 
 import android.os.Bundle;
@@ -35,14 +23,13 @@ public class MainActivity extends AppCompatActivity {
 
     private Handler mHandler;
     private boolean displayingInfo;
-    private Data data;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mHandler = new Handler(Looper.getMainLooper());
+        // mHandler = new Handler(Looper.getMainLooper());
 
         View view = this.getWindow().getDecorView();
         view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
@@ -55,29 +42,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.mainToolbarId);
         setSupportActionBar(toolbar);
 
-        displayingInfo = false;
+        displayingInfo = true;
 
-        //JSon query
-        String url = "http://www.duggan.ch/~akv_lauzhack/mastercut.php?MachineName=MasterCut";
-        JsonQuery jsonQuery = new JsonQuery();
-        JSONObject json = null;
-        try {
-            json = jsonQuery.getJson(url).get();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        new Thread(() -> {
+            while(true) {
+                Data data = getData();
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        setInfo(data);
+                    }
+                });
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
         }
-        if (json != null)
-            Log.d("Lauzhack", json.toString());
+        ).start();
 
-        try {
-            data = new Data(json);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        update();
     }
 
     @Override
@@ -102,8 +86,29 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void update() {
-        setInfo();
+    public Data getData() {
+        //JSon query
+        String url = "http://www.duggan.ch/~akv_lauzhack/mastercut.php?MachineName=MasterCut";
+        JsonQuery jsonQuery = new JsonQuery();
+        JSONObject json = null;
+        try {
+            json = jsonQuery.getJson(url).get();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        if (json != null)
+            Log.i("Lauzhack", json.toString());
+
+        Data data = null;
+
+        try {
+            data = new Data(json);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return data;
     }
 
     private void toggleInfoDisplay() {
@@ -142,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    void setInfo() {
+    void setInfo(Data data) {
         ((TextView) findViewById(R.id.textViewId)).setText(""+data.getID());
         ((TextView) findViewById(R.id.textViewJobName)).setText(""+data.getJobName());
         ((TextView) findViewById(R.id.textViewMachineState)).setText(""+data.getMachineState());
