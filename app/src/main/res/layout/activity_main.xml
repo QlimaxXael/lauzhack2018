@@ -26,17 +26,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelStatus"
+            android:id="@+id/textViewLabelId"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_status"
+            android:text="@string/id"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewStatus"
+            android:id="@+id/textViewId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -52,17 +52,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelPresent"
+            android:id="@+id/textViewLabelJobName"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_present"
+            android:text="@string/job_name"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewPresent"
+            android:id="@+id/textViewJobName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -78,17 +78,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelLevel"
+            android:id="@+id/textViewLabelMachineState"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_level"
+            android:text="@string/machine_state"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewLevel"
+            android:id="@+id/textViewMachineState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -104,17 +104,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelPlugged"
+            android:id="@+id/textViewLabelMachineSpeed"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_plugged"
+            android:text="@string/machine_speed"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewPlugged"
+            android:id="@+id/textViewMachineSpeed"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -130,17 +130,17 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelVoltage"
+            android:id="@+id/textViewLabelInputCounter"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_voltage"
+            android:text="@string/input_counter"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewVoltage"
+            android:id="@+id/textViewInputCounter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -156,17 +156,43 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/textViewLabelTemperature"
+            android:id="@+id/textViewLabelOutputCounter"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:text="@string/battery_temperature"
+            android:text="@string/output_counter"
             android:textColor="@android:color/background_light"
             android:textSize="24sp"
             android:textStyle="normal|bold"
             android:visibility="gone" />
 
         <TextView
-            android:id="@+id/textViewTemperature"
+            android:id="@+id/textViewOutputCounter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textViewLabelCuttingForce"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cutting_force"
+            android:textColor="@android:color/background_light"
+            android:textSize="24sp"
+            android:textStyle="normal|bold"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/textViewCuttingForce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

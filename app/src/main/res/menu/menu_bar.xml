@@ -4,7 +4,7 @@
 
     <item
         android:id="@+id/action_info"
-        android:title="@string/display_Info"
+        android:title="@string/display_info"
         android:icon="@drawable/ic_button_display_info_48dp"
         app:showAsAction="always"/>
 
