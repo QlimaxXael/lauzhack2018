@@ -1,24 +1,13 @@
-<!--
-  ~ Copyright(C) Seiko Epson Corporation 2016. All rights reserved.
-  ~
-  ~ Warranty Disclaimers.
-  ~ You acknowledge and agree that the use of the software is at your own risk.
-  ~ The software is provided "as is" and without any warranty of any kind.
-  ~ Epson and its licensors do not and cannot warrant the performance or results
-  ~ you may obtain by using the software.
-  ~ Epson and its licensors make no warranties, express or implied, as to non-infringement,
-  ~ merchantability or fitness for any particular purpose.
-  -->
-
 <resources>
-    <string name="app_name">Sample Show Battery Info</string>
+    <string name="app_name">Lauzhack 2018</string>
 
     <!-- Layout -->
-    <string name="battery_plugged">plugged</string>
-    <string name="battery_status">status</string>
-    <string name="battery_present">present</string>
-    <string name="battery_level">level</string>
-    <string name="battery_current">current</string>
-    <string name="battery_voltage">voltage</string>
-    <string name="battery_temperature">temperature</string>
+    <string name="id">ID</string>
+    <string name="job_name">Job name</string>
+    <string name="machine_state">Machine state</string>
+    <string name="machine_speed">Machine speed</string>
+    <string name="input_counter">Input counter</string>
+    <string name="output_counter">Output counter</string>
+    <string name="cutting_force">Cutting force</string>
+    <string name="display_info">Display info</string>
 </resources>
