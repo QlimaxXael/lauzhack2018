@@ -2,12 +2,12 @@
     <string name="app_name">Lauzhack 2018</string>
 
     <!-- Layout -->
-    <string name="battery_plugged">plugged</string>
-    <string name="battery_status">status</string>
-    <string name="battery_present">present</string>
-    <string name="battery_level">level</string>
-    <string name="battery_current">current</string>
-    <string name="battery_voltage">voltage</string>
-    <string name="battery_temperature">temperature</string>
-    <string name="display_Info">Display Info</string>
+    <string name="id">ID</string>
+    <string name="job_name">Job name</string>
+    <string name="machine_state">Machine state</string>
+    <string name="machine_speed">Machine speed</string>
+    <string name="input_counter">Input counter</string>
+    <string name="output_counter">Output counter</string>
+    <string name="cutting_force">Cutting force</string>
+    <string name="display_info">Display info</string>
 </resources>
