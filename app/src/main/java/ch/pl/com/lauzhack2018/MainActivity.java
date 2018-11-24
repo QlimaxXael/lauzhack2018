@@ -24,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 import com.epson.moverio.btcontrol.DisplayControl;
 
@@ -51,6 +52,10 @@ public class MainActivity extends AppCompatActivity {
         //Changes display distance
         DisplayControl displayControl = new DisplayControl(this);
         displayControl.setDisplayDistance(15);
+
+        //Set up the toolbar
+        Toolbar toolbar = findViewById(R.id.mainToolbarId);
+        setSupportActionBar(toolbar);
     }
 
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
