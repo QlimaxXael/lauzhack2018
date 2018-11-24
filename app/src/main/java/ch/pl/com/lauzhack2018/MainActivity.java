@@ -22,7 +22,10 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+
+import com.epson.moverio.btcontrol.DisplayControl;
 
 import ch.pl.com.lauzhack2018.R;
 
@@ -41,6 +44,13 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = this.registerReceiver(mBroadcastReceiver, intentFilter);
 
         setBatteryInfo(intent);
+
+        View view = this.getWindow().getDecorView();
+        view.setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+        //Changes display distance
+        DisplayControl displayControl = new DisplayControl(this);
+        displayControl.setDisplayDistance(15);
     }
 
     private BroadcastReceiver mBroadcastReceiver = new BroadcastReceiver() {
